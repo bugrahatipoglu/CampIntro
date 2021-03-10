@@ -16,9 +16,13 @@ namespace ClassMetotDemo
             Console.WriteLine("Musteri sistemden silindi! : " + musteri.Adi + " " + musteri.Soyadi);
         }
 
-        public void Listele(Musteri musteri)
+        public void Listele(Musteri[] musteri)
         {
-            Console.WriteLine("Musteriler listelendi! : " + musteri.MusteriNo);
+            foreach (var customer in musteri)
+            {
+                Console.WriteLine("Musteriler listelendi! : " + customer.MusteriNo);
+            }
+            
         }
     }
 }
