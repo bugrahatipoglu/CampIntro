@@ -43,6 +43,7 @@ namespace Metotlar
             //sepetManager.Ekle();
             //sepetManager.Ekle();
 
+
             sepetManager.Ekle2("Armut", "Yesil Armut", 12,10);
             sepetManager.Ekle2("Elma", "Yesil Elma", 16,9);
             sepetManager.Ekle2("Karpuz", "Beyaz Karpuz", 19,8);
