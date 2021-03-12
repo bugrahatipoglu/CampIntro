@@ -15,7 +15,7 @@ namespace MyDictionary
 
         }
 
-        class MyDictionary<Name,Age>
+        class MyDictionary<Name,Age> // Key, Value
         {
             Name[] valueArray;
             Age[] keyArray;
