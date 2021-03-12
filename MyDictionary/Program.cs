@@ -6,30 +6,39 @@ namespace MyDictionary
     {
         static void Main(string[] args)
         {
-            MyDictionary<string, int> NameAge = new MyDictionary<string, int>();
-            NameAge.Add("Ali", 49);
-            NameAge.Add("Emriye",51);
-            NameAge.Add("Burak", 27);
-            NameAge.Add("Deniz", 6);
-            NameAge.goruntule();
+            MyDictionary<int, string> studentNoName = new MyDictionary<int, string>();
+            studentNoName.Add(707, "Ali");
+            studentNoName.Add(321,"Emriye");
+            studentNoName.Add(185, "Burak");
+            studentNoName.Add(784, "Buğra");
+            studentNoName.goruntule();
 
         }
 
-        class MyDictionary<Name,Age>
+        class MyDictionary<StudentNo,Name> //key-value
         {
             Name[] valueArray;
-            Age[] keyArray;
+            StudentNo[] keyArray;
             Name[] tempValueArray;
-            Age[] tempKeyArray;
+            StudentNo[] tempKeyArray;
             
 
         public MyDictionary()
             {
                 valueArray = new Name[0];
-                keyArray = new Age[0];
+                keyArray = new StudentNo[0];
             }
-        public void Add(Name Namee,Age Agee)
+        public void Add(StudentNo studentNo,Name name)
             {
+                tempKeyArray = keyArray;
+                keyArray = new StudentNo[keyArray.Length + 1];
+                for (int i = 0; i < tempKeyArray.Length; i++)
+                {
+                    keyArray[i] = tempKeyArray[i];
+                }
+
+                keyArray[keyArray.Length - 1] = studentNo;
+
                 tempValueArray = valueArray;
                 valueArray = new Name[valueArray.Length + 1];
                 for (int i = 0; i < tempValueArray.Length; i++)
@@ -37,23 +46,14 @@ namespace MyDictionary
                     valueArray[i] = tempValueArray[i];
                 }
 
-                valueArray[valueArray.Length - 1] = Namee;
-
-                tempKeyArray = keyArray;
-                keyArray = new Age[keyArray.Length + 1];
-                for (int i = 0; i < tempKeyArray.Length; i++)
-                {
-                    keyArray[i] = tempKeyArray[i];
-                }
-
-                keyArray[keyArray.Length - 1] = Agee;
+                valueArray[valueArray.Length - 1] = name;
             }
 
             public void goruntule()
             {
                 for (int i = 0; i < valueArray.Length; i++)
                 {
-                    Console.WriteLine("Name : " + valueArray[i] + " " + "Age : " + keyArray[i]);
+                    Console.WriteLine("Student No : " + keyArray[i] + " " + "Name : " + valueArray[i]);
                 }
             }
         }
